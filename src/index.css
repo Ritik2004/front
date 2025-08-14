@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for the birthday app */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D1B2A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8BFD8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFC0CB;
+}
+
+/* Custom utilities */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+}
+
+/* Star field animation */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Shooting star trail */
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  transform: translateX(-100px);
+}
+
+/* Heart shape using CSS */
+.heart {
+  position: relative;
+  width: 20px;
+  height: 18px;
+  transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  width: 12px;
+  height: 19px;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  background: #FF69B4;
+  border-radius: 10px 10px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+/* Modal animations */
+.modal-enter {
+  animation: scaleIn 0.3s ease-out;
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+}
+
+/* Balloon floating animation */
+.balloon-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Sparkle effect */
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  animation: twinkle 1.5s ease-in-out infinite;
+}
+
+/* Glow effect for buttons */
+.glow-button {
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 30px rgba(255, 192, 203, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Enhanced sparkle animations */
+.sparkle-burst {
+  animation: sparkleBurst 1s ease-out forwards;
+}
+
+/* Rainbow glow effect for music button */
+.rainbow-glow {
+  animation: rainbowGlow 2s ease-in-out infinite;
+}
+
+/* Bounce in animation for modals */
+.bounce-in {
+  animation: bounceIn 0.6s ease-out;
+}
+
+/* Pulse effect for interactive elements */
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Enhanced button hover effects */
+.magic-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.magic-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, #FFC0CB, #D8BFD8, #FFD700);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.magic-button:hover::before {
+  opacity: 1;
+}
+
+/* Click sparkle animation */
+@keyframes sparkleBurst {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Rainbow glow animation */
+@keyframes rainbowGlow {
+  0% { box-shadow: 0 0 20px #FFD700; }
+  25% { box-shadow: 0 0 25px #FFC0CB; }
+  50% { box-shadow: 0 0 20px #D8BFD8; }
+  75% { box-shadow: 0 0 25px #87CEEB; }
+  100% { box-shadow: 0 0 20px #FFD700; }
+}
+
+/* Bounce in animation */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Pulse glow animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 192, 203, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 192, 203, 0.8);
+  }
+}
